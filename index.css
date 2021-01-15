@@ -1,0 +1,158 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffe5d9;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 2px 2px 20px #1d3557,
+                inset 0 0 10px #1d3557;
+    border: 14px solid #03045e;
+    }
+    
+.clock::after,
+.clock::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    background: #03045e;
+    z-index: 0;
+    left: 50%;
+    margin-left: -5px;
+    top: 0;
+}
+
+.clock::after {
+    transform: rotate(90deg);
+}
+
+.clock::before, 
+.clock::after, 
+.clock .marker{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    background: #03045e;
+    z-index: 0;
+    left: 50%;
+    margin-left: -5px;
+    top: 0;
+}
+
+.clock .marker {
+    background: #023e8a;
+    width: 8px;
+    margin-left: -4px;
+}
+
+.clock .marker.oneseven {
+    transform: rotate(30deg);
+}
+
+.clock .marker.twoeight {
+    transform: rotate(60deg)
+}
+
+.clock .marker.fourten {
+    transform: rotate(120deg);
+}
+
+.clock .marker.fiveeleven {
+    transform: rotate(150deg);
+    }
+    
+.face {
+    position: relative;
+    width: 88%;
+    height: 88%;
+    background: white;
+    border-radius: 1000px;
+    z-index: 1000;
+    left: 6%;
+    top: 6%; 
+}
+
+.face::before {
+    /* clock center dot small */
+    content: "";
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+    margin-left: -9px;
+    margin-top: -9px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0 0 30px #1d3557;
+}
+
+.face::after {
+    content: "Amir";
+    position: absolute;
+    width: 100%;
+    font: normal 0.8em Arial;
+    color: gray;
+    text-align: center;
+    top: 85%;
+}
+
+.hand,
+.hour-hand {
+    position: absolute;
+    width: 5px;
+    height: 30%; 
+    top: 20%; 
+    left: 50%; 
+    margin-left: -2px; 
+    background: black;
+    transform-origin: bottom;
+    z-index: -1;
+    box-shadow: 0 0 5px #1d3557;
+}
+
+.hour-hand {
+    /* transform: rotate(90deg); */
+    animation: second 86400 linear infinite;
+}
+
+.minute-hand {
+    height: 45%;
+    top: 5%;
+    width: 7px;
+    margin-left: -3px;
+    /* transform: rotate(60deg); */
+    animation: second 3600s linear infinite;
+}
+
+.second-hand {
+    height: 50%;
+    width: 3px;
+    margin-left: -1px;
+    top: 0;
+    background: red;
+    /* transform: rotate(20deg); */
+    animation: second 60s linear infinite;
+}
+
+/* @keyframes second {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+} */
